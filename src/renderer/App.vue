@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'wechat-tool'
+    name: 'weTools'
   }
 </script>
 

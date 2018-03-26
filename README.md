@@ -1,4 +1,4 @@
-# wechat-tool
+# weTools
 
 > An electron-vue project
 

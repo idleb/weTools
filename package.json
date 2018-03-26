@@ -1,5 +1,5 @@
 {
-  "name": "wechat-tool",
+  "name": "weTools",
   "version": "0.0.0",
   "author": "lijun <idleb2317@hotmail.com>",
   "description": "An electron-vue project",
@@ -22,7 +22,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "wechat-tool",
+    "productName": "weTools",
     "appId": "org.simulatedgreg.electron-vue",
     "directories": {
       "output": "build"
