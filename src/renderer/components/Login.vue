@@ -28,12 +28,14 @@ export default {
       }
 
       return ['扫码登录微信', '网页版微信需要配合你的手机登录使用']
+    },
+    groups () {
+      return this.$store.state.Config.groups
     }
   },
 
   mounted () {
     const wechaty = require('electron').remote.getGlobal('wechaty')
-    let groups = []
     wechaty
       .on('scan', (url, code) => {
         console.log(`Scan QR Code to login: ${code}\n${url}`)
@@ -46,15 +48,13 @@ export default {
         this.$store.dispatch('init', {wechaty, user})
         console.log(user.id)
 
-        this.$store.commit('GROUPS', groups)
-
         this.$router.replace(this.$route.query.redirect || '/')
       })
       .on('message', m => {
         console.log(`message ${m} received`)
-        // if (m.self()) {
-        //   return
-        // }
+        if (m.self()) {
+          return
+        }
         const contact = m.from()
         const content = m.content()
         const room = m.room()
@@ -63,13 +63,20 @@ export default {
         console.log(content)
         console.log(room)
 
-        groups.forEach(config => {
+        this.groups.forEach(config => {
+          console.log(config)
           if (config.disable) return
-          const configRoom = config.rooms.find(item => item === room)
+          const configRoom = config.rooms.find(item => item.room.id === room.id)
+          console.log(configRoom)
           if (configRoom) {
-            const speaker = configRoom.members.find(item => item === contact)
+            const speaker = configRoom.members.find(item => item.id === contact.id)
+            console.log(speaker)
             if (speaker) {
               console.log(speaker, '===>', config.rooms)
+              config.rooms.forEach(item => {
+                if (item.room.id === room.id) return
+                item.room.say(m)
+              })
             }
           }
         })
@@ -83,6 +90,9 @@ export default {
 </script>
 
 <style scoped>
+#login{
+  overflow: hidden;
+}
 figure{
   width: 80%;
   margin: 20% auto;
