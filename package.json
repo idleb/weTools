@@ -22,7 +22,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "my-project",
+    "productName": "wechat-tool",
     "appId": "org.simulatedgreg.electron-vue",
     "directories": {
       "output": "build"
@@ -62,7 +62,7 @@
     "vue-electron": "^1.0.6",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1",
-    "wechaty": "^0.13.86"
+    "wechaty": "^0.13.79"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
