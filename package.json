@@ -45,6 +45,7 @@
         }
       ]
     },
+    "asar": false,
     "mac": {
       "icon": "build/icons/icon.icns"
     },
