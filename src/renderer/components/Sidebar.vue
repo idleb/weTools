@@ -77,7 +77,7 @@ header>button{
 .item.active{
   background-color: rgba(100,100,100,0.2);
 }
-.item .button-group{
+.item .el-button-group{
   float: right;
 }
 </style>
