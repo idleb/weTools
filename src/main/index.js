@@ -40,7 +40,7 @@ function createWindow () {
     maximizable: false
   })
 
-  mainWindow.webContents.closeDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.loadURL(winURL)
 
