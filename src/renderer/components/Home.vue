@@ -183,7 +183,9 @@ export default {
     CBW.setResizable(true)
     CBW.setMinimizable(true)
     CBW.setMaximizable(true)
-    CBW.webContents.openDevTools()
+    if (process.env.NODE_ENV === 'development') {
+      mainWindow.webContents.openDevTools()
+    }
 
     this.$store.commit('GROUPS', [])
 
