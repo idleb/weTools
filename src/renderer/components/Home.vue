@@ -184,7 +184,7 @@ export default {
     CBW.setMinimizable(true)
     CBW.setMaximizable(true)
     if (process.env.NODE_ENV === 'development') {
-      mainWindow.webContents.openDevTools()
+      CBW.webContents.openDevTools()
     }
 
     this.$store.commit('GROUPS', [])
