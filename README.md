@@ -1,6 +1,6 @@
 # weTools
 
-> An electron-vue project
+> 微信机器人客户端，帮助运营人员管理微信群，解决微信群内监听消息多群转发。采用electron-vue搭建，微信机器人使用[wechaty](https://github.com/Chatie/wechaty)。
 
 #### Build Setup
 
